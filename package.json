@@ -1,5 +1,5 @@
 {
-  "name": "graphql-typescript-react",
+  "name": "react-repositories-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
     "codegen:watch": "npm run codegen -- -w",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -67,6 +67,7 @@
     "@typescript-eslint/parser": "^3.9.0",
     "apollo": "^2.16.3",
     "artillery": "^1.6.0-26",
+    "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "npm-watch": "^0.6.0",
