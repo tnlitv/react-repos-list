@@ -2,10 +2,11 @@ overwrite: true
 schema:
   - https://api.github.com/graphql:
       headers:
-        Authorization: "bearer ${REACT_APP_GITHUB_TOKEN}"
-documents: "./src/components/**/*.{ts,tsx}"
+        Authorization: "bearer ${GITHUB_TOKEN}"
+documents: "./src/**/**/*.{ts,tsx}"
 generates:
   src/generated/graphql.tsx:
+    schema: ./src/local-state-schema.graphql
     plugins:
       - "typescript"
       - "typescript-operations"

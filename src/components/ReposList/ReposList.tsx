@@ -1,18 +1,58 @@
 import React from 'react';
-import { useRepositoriesQuery } from '../../generated/graphql';
+import InfiniteScroll from 'react-infinite-scroller';
+import styled from "styled-components";
+import {
+    TableContainer, Paper, Table, TableHead, TableRow, TableCell, CircularProgress
+} from "@material-ui/core";
+import RepoListItem from "../RepoListItem/RepoListItem";
+import {Maybe, SearchResultItemEdge} from "../../generated/graphql";
 
-const ReposList = () => {
-    const { data, error, loading } = useRepositoriesQuery();
+interface Props {
+    data: Maybe<Array<Maybe<SearchResultItemEdge>>> | undefined
+    loadMore: (page: number) => void
+    hasMore: boolean
+}
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+const ReposList: React.FC<Props> = ({data, loadMore, hasMore}: Props) => {
+    return <TableContainer component={Paper}>
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell align="right">Author</TableCell>
+                    <TableCell align="right">Stars</TableCell>
+                    <TableCell align="right">Forks</TableCell>
+                </TableRow>
+            </TableHead>
 
-    if (error || !data) {
-        return <div>ERROR</div>;
-    }
-
-    return <div>{JSON.stringify(data)}</div>;
+            {!!data &&
+            <InfiniteScroll
+                pageStart={0}
+                loadMore={loadMore}
+                hasMore={hasMore}
+                initialLoad={false}
+                element={'tbody'}
+                loader={<Loader/>}
+            >
+                {data.map(
+                    ({node}: any) =>
+                        node && <RepoListItem repository={node}/>,
+                )}
+            </InfiniteScroll>
+            }
+        </Table>
+    </TableContainer>
 };
+
+const Loader = () => <TableRow>
+    <ProgressContainer colSpan={4}>
+        <CircularProgress/>
+    </ProgressContainer>
+</TableRow>;
+
+const ProgressContainer = styled.td`
+    text-align: center;
+    padding: 8px 0;
+`;
 
 export default ReposList;

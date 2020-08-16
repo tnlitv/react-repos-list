@@ -22,7 +22,7 @@ Then create `.env` file based on `.env.example`
 
 Server should now be running at `http://localhost:3000/`
 
-#### Run development locally with Docker
+#### Run development server locally with Docker
 Make sure you're in a project root directory. Then run:
 
 `docker build -t sample:dev .`
@@ -32,3 +32,7 @@ Make sure you're in a project root directory. Then run:
 _Note: if using fish, replace ${PWD} with {$PWD}_
 
 Server should now be running at `http://localhost:3001/`
+
+
+#### Build for production
+- `npm run build`
