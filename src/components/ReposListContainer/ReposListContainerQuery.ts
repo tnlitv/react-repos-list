@@ -16,7 +16,7 @@ export const QUERY_REPOS_LIST = gql`
                         }
                         url
                         owner {
-                          login
+                            login
                         }
                     }
                 }

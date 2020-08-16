@@ -9,11 +9,11 @@ export const LocalStorageTokenService: TokenServiceInterface = class {
 
     static getToken() {
         return localStorage.getItem(this.tokenProp);
-    };
+    }
 
     static setToken(token: string) {
         localStorage.setItem(this.tokenProp, token);
-    };
+    }
 
     static clearToken() {
         localStorage.removeItem(this.tokenProp);

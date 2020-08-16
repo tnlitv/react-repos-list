@@ -1,6 +1,6 @@
-import {TokenServiceInterface} from "../LocalStorageTokenService/LocalStorageTokenService";
-import {makeVar, ReactiveVar} from "@apollo/client";
-import LocalStorageTokenService from "../LocalStorageTokenService";
+import { TokenServiceInterface } from '../LocalStorageTokenService/LocalStorageTokenService';
+import { makeVar, ReactiveVar } from '@apollo/client';
+import LocalStorageTokenService from '../LocalStorageTokenService';
 
 interface AuthServiceConstructor {
     new (tokenProvider: TokenServiceInterface): AuthServiceInterface;
@@ -19,7 +19,7 @@ export const AuthService: AuthServiceConstructor = class Auth implements AuthSer
         this.isLoggedIn = this.isLoggedIn.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-    };
+    }
 
     private tokenProvider: TokenServiceInterface;
     private isLoggedInVar: ReactiveVar<boolean>;
@@ -40,4 +40,4 @@ export const AuthService: AuthServiceConstructor = class Auth implements AuthSer
     }
 };
 
-export default (new AuthService(LocalStorageTokenService));
+export default new AuthService(LocalStorageTokenService);

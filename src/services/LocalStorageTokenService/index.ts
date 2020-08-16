@@ -1,1 +1,1 @@
-export {default} from './LocalStorageTokenService';
+export { default } from './LocalStorageTokenService';
