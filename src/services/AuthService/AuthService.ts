@@ -24,17 +24,16 @@ export const AuthService: AuthServiceConstructor = class Auth implements AuthSer
     private tokenProvider: TokenServiceInterface;
     private isLoggedInVar: ReactiveVar<boolean>;
 
-    isLoggedIn() {
+    isLoggedIn(): boolean {
         return this.isLoggedInVar();
     }
 
-    login(token: string) {
+    login(token: string): void {
         this.tokenProvider.setToken(token);
         this.isLoggedInVar(true);
     }
 
-    logout() {
-        debugger;
+    logout(): void {
         this.tokenProvider.clearToken();
         this.isLoggedInVar(false);
     }

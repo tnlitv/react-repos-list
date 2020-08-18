@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { InputLabel, TextField, Container, Typography, Link } from '@material-ui/core';
 import AuthService from '../../services/AuthService/index';
 
-export const Login = () => {
+export const Login: React.FC = () => {
     const [token, setToken] = useState('');
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {

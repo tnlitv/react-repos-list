@@ -7,7 +7,7 @@ import { useGetSearchTermQuery } from '../../generated/graphql';
 
 const INPUT_DELAY = 250;
 
-export const SearchBar = () => {
+export const SearchBar: React.FC = () => {
     const { data } = useGetSearchTermQuery();
     const [searchTerm, setSearchTerm] = useState(data ? data.searchTerm : '');
     const debouncedSearchTerm = useDebounce(searchTerm, INPUT_DELAY);

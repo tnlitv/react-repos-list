@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  repos-list-test:
+    container_name: repos-list-test
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      - CI=true
+    command: npm run test

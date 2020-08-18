@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Paper } from '@material-ui/core';
-import Header from '../../components/Header/Header';
-import ReposListContainer from '../../components/ReposListContainer/ReposListContainer';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import Header from '../../containers/Header';
+import RepoListContainer from '../../containers/RepoListContainer';
+import SearchBar from '../../containers/SearchBar';
 
-const Search = () => (
+const Search: React.FC = () => (
     <>
         <Header />
         <StyledPaper>
@@ -14,7 +14,7 @@ const Search = () => (
             </Container>
         </StyledPaper>
         <StyledContainer maxWidth="md">
-            <ReposListContainer />
+            <RepoListContainer />
         </StyledContainer>
     </>
 );
