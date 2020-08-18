@@ -36,3 +36,7 @@ Server should be running at `http://localhost:3000/`
 Builds and serves application at `http://localhost:3001/`
 
 `make test` to run tests (not in watch mode)
+
+
+#### Todo:
+- replace infinite scroller with virtualized table
