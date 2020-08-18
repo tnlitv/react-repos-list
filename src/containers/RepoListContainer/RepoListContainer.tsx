@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
-import { CircularProgress, Typography } from '@material-ui/core';
+import ErrorBox from '../../components/ErrorBox';
+import Loader from '../../components/Loader';
+import RepoList from './components/RepoList';
 import { useRepositoriesQuery, useGetSearchTermQuery } from '../../generated/graphql';
-import ReposList from '../ReposList/ReposList';
 
-const PAGE_SIZE = 25;
+export const PAGE_SIZE = 25;
 
-const ReposListContainer = () => {
+const RepoListContainer: React.FC = () => {
     const { data: search } = useGetSearchTermQuery();
     const query = search ? search.searchTerm : '';
     const { data, error, loading, fetchMore } = useRepositoriesQuery({
@@ -18,25 +18,14 @@ const ReposListContainer = () => {
     });
 
     if (loading) {
-        return (
-            <CenterWrapper>
-                {' '}
-                <CircularProgress />{' '}
-            </CenterWrapper>
-        );
+        return <Loader />;
     }
-
     if (error || !data) {
-        return (
-            <CenterWrapper>
-                {' '}
-                <Typography>Couldn&apos;t load data</Typography>{' '}
-            </CenterWrapper>
-        );
+        return <ErrorBox />;
     }
 
     return (
-        <ReposList
+        <RepoList
             data={data.search.edges}
             hasMore={data.search.pageInfo.hasNextPage}
             loadMore={() =>
@@ -52,9 +41,4 @@ const ReposListContainer = () => {
     );
 };
 
-const CenterWrapper = styled.div`
-    width: 100%;
-    text-align: center;
-`;
-
-export default ReposListContainer;
+export default RepoListContainer;

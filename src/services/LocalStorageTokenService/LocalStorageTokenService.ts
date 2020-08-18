@@ -7,15 +7,15 @@ export interface TokenServiceInterface {
 export const LocalStorageTokenService: TokenServiceInterface = class {
     static tokenProp = 'GITHUB_TOKEN';
 
-    static getToken() {
+    static getToken(): string | null {
         return localStorage.getItem(this.tokenProp);
     }
 
-    static setToken(token: string) {
+    static setToken(token: string): void {
         localStorage.setItem(this.tokenProp, token);
     }
 
-    static clearToken() {
+    static clearToken(): void {
         localStorage.removeItem(this.tokenProp);
     }
 };

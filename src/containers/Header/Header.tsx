@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import AuthService from '../../services/AuthService';
 import { useGetUserQuery } from '../../generated/graphql';
 
-export const Header = () => {
+export const Header: React.FC = () => {
     const { data, error } = useGetUserQuery();
 
     return (

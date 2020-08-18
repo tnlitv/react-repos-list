@@ -23,14 +23,7 @@ Then create `.env` file based on `.env.example`
 Server should now be running at `http://localhost:3000/`
 
 #### Run development server locally with Docker
-Make sure you're in a project root directory. Then run:
-
-`docker build -t sample:dev .`
-
-`docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true sample:dev`
-
-_Note: if using fish, replace ${PWD} with {$PWD}_
-
+`docker-compose up`
 Server should now be running at `http://localhost:3001/`
 
 

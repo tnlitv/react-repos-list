@@ -3,8 +3,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Link from '@material-ui/core/Link';
 
-interface Repository {
-    id: number;
+export interface Repository {
+    id: string;
     name: string;
     forkCount: number;
     stargazers: {
@@ -20,8 +20,8 @@ interface Props {
     repository: Repository;
 }
 
-export const RepoListItem = ({ repository }: Props) => (
-    <TableRow key={repository.id}>
+export const RepoListItem: React.FC<Props> = ({ repository }: Props) => (
+    <TableRow key={repository.id} data-testid="repo-list-item">
         <TableCell component="th" scope="row">
             <Link href={repository.url} target="#blank" rel="noopener">
                 {repository.name}

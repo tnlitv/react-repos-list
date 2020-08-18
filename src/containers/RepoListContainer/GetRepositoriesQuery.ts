@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const QUERY_REPOS_LIST = gql`
+export const GET_REPOSITORIES = gql`
     query Repositories($query: String!, $first: Int, $after: String) {
         searchTerm @client @export(as: "query")
         search(query: $query, type: REPOSITORY, first: $first, after: $after) {
