@@ -5,7 +5,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { MockedProvider } from '@apollo/client/testing';
 import { MockedProviderProps } from '@apollo/client/utilities/testing/mocking/MockedProvider';
 
-const renderApollo = (
+const renderMockedProvider = (
     node: JSX.Element,
     { mocks, addTypename = false, defaultOptions, cache, resolvers }: MockedProviderProps,
     options: RenderOptions = {},
@@ -28,7 +28,7 @@ interface Props {
     dataTestId: string;
 }
 
-const MockComponent: React.FC<Props> = ({dataTestId}) => <div data-testid={dataTestId} />;
+const MockedComponent: React.FC<Props> = ({dataTestId}) => <div data-testid={dataTestId} />;
 
 export * from '@testing-library/react';
-export { renderApollo, MockComponent };
+export { renderMockedProvider, MockedComponent };

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import { cleanup, renderApollo, waitFor } from '../../test-utils';
+import { cleanup, renderMockedProvider, waitFor } from '../../test-utils';
 import { GET_USER } from './GetUserQuery';
 
 describe('Header', () => {
@@ -14,7 +14,7 @@ describe('Header', () => {
             },
         ];
 
-        const { getByText } = renderApollo(<Header />, {
+        const { getByText } = renderMockedProvider(<Header />, {
             mocks,
             addTypename: false,
         });
@@ -30,7 +30,7 @@ describe('Header', () => {
             },
         ];
 
-        const { getByText } = renderApollo(<Header />, {
+        const { getByText } = renderMockedProvider(<Header />, {
             mocks,
             addTypename: false,
         });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { InMemoryCache } from '@apollo/client';
-import { cleanup, renderApollo, waitFor } from '../../test-utils';
+import { cleanup, renderMockedProvider, waitFor } from '../../test-utils';
 import { GET_REPOSITORIES } from './GetRepositoriesQuery';
 import RepoListContainer, { PAGE_SIZE } from './RepoListContainer';
 
@@ -54,7 +54,7 @@ describe('RepoListContainer', () => {
                 },
             },
         });
-        const { getByTestId, queryAllByTestId } = renderApollo(<RepoListContainer />, {
+        const { getByTestId, queryAllByTestId } = renderMockedProvider(<RepoListContainer />, {
             mocks,
             cache,
             addTypename: true,

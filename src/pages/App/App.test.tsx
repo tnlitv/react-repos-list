@@ -1,14 +1,14 @@
 import React from 'react';
 import { InMemoryCache } from '@apollo/client';
-import { cleanup, renderApollo, waitFor, MockComponent } from '../../test-utils';
+import { cleanup, renderMockedProvider, waitFor, MockedComponent } from '../../test-utils';
 import { GET_IS_LOGGED_IN } from './GetIsLoggedInQuery';
 import App from './App';
 
 jest.mock('../Search', () => {
-    return { __esModule: true, default: () => <MockComponent dataTestId="search"/> };
+    return { __esModule: true, default: () => <MockedComponent dataTestId="search"/> };
 });
 jest.mock('../Login', () => {
-    return { __esModule: true, default: () => <MockComponent dataTestId="login"/> };
+    return { __esModule: true, default: () => <MockedComponent dataTestId="login"/> };
 });
 
 describe('App', () => {
@@ -34,7 +34,7 @@ describe('App', () => {
                 },
             },
         });
-        const { getByTestId } = renderApollo(<App />, {
+        const { getByTestId } = renderMockedProvider(<App />, {
             mocks,
             cache,
         });
@@ -63,7 +63,7 @@ describe('App', () => {
             },
         });
 
-        const { getByTestId } = renderApollo(<App />, {
+        const { getByTestId } = renderMockedProvider(<App />, {
             mocks,
             cache,
         });
