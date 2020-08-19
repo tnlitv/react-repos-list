@@ -40,3 +40,6 @@ Builds and serves application at `http://localhost:3001/`
 
 #### Todo:
 - replace infinite scroller with virtualized table
+- add 40x, 50x error handling
+- display amount of repositories at the top of the table
+- add more tests
